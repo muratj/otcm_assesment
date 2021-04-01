@@ -1,3 +1,4 @@
+require('jasmine');
 const using = require('jasmine-data-provider');
 const {
     browser
@@ -13,6 +14,11 @@ describe('Quote test', function () {
             await basePage.getQuote(quote.symbol);
 
             await quotePage.navigateToTab('Quote');
+
+            quotePage.quoteInfo.then((info) => {
+                expect(info[0].getText()).toBe(quote.symbol);
+                expect(info[1].getText()).toBe(quote.company);
+            })
 
             browser.sleep(3000);
         });
