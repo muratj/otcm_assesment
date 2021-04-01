@@ -1,7 +1,9 @@
 # OTCMarket test
 
 Works with only "QX quotes" and has some issues with js promises.
+
 The framework based on POM.
+
 Outogenerate html reports with screenshot in `/target/` folder.
 
 ## installation
