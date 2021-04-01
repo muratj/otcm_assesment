@@ -15,10 +15,22 @@ describe('Quote test', function () {
 
             await quotePage.navigateToTab('Quote');
 
-            quotePage.quoteInfo.then((info) => {
+            const marketCapOnQuote = quotePage.marketCapOnQuote.getText();
+            const openPriceOnQuote = quotePage.openPriceOnQuote.getText();
+
+            quotePage.quoteMeta.then((info) => {
                 expect(info[0].getText()).toBe(quote.symbol);
                 expect(info[1].getText()).toBe(quote.company);
             })
+
+            await quotePage.navigateToTab('Security Details');
+
+            const marketCapOnSequrity = quotePage.marketCapOnSequrity.getText();
+            const date = quotePage.date.getText();
+
+            expect(marketCapOnQuote).toBe(marketCapOnSequrity);
+
+            console.log(`Market Cap ${marketCapOnSequrity} on ${date}`);
 
             browser.sleep(3000);
         });

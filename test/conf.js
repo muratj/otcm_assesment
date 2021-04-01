@@ -6,7 +6,7 @@ exports.config = {
     framework: 'jasmine',
     specs: ['./spec.js'],
     jasmineNodeOpts: {
-        defaultTimeoutInterval: 30000
+        defaultTimeoutInterval: 60000
     },
     onPrepare: () => {
         browser.waitForAngularEnabled(false);
